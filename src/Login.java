@@ -100,7 +100,6 @@ public class Login extends JDialog {
         try{
             con = getConection();
 
-
             ps = con.prepareStatement("SELECT * FROM USUARIOS where idroles =? and usuario =? and contrasenia = ?;");
             ps.setString(1, id);
             ps.setString(2, usuario);

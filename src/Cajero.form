@@ -135,7 +135,7 @@
               <text value="Cantidad:"/>
             </properties>
           </component>
-          <component id="34f12" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="34f12" class="javax.swing.JTextField" binding="idprodTXT">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -176,7 +176,7 @@
               <hideActionText class="java.lang.Boolean" value="false"/>
             </clientProperties>
           </component>
-          <component id="e6531" class="javax.swing.JTextField" default-binding="true">
+          <component id="e6531" class="javax.swing.JTextField" binding="NOMProdTXT">
             <constraints>
               <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -184,7 +184,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="2c4b0" class="javax.swing.JTextField" default-binding="true">
+          <component id="2c4b0" class="javax.swing.JTextField" binding="precioVenTXT">
             <constraints>
               <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -192,7 +192,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="2ac87" class="javax.swing.JSpinner" binding="cantidad">
+          <component id="2ac87" class="javax.swing.JSpinner" binding="cantidadSPN">
             <constraints>
               <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -273,7 +273,7 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="96534" class="javax.swing.JButton">
+          <component id="96534" class="javax.swing.JButton" binding="clienteButton">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="9" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -290,7 +290,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="994d4" class="javax.swing.JButton">
+          <component id="994d4" class="javax.swing.JButton" binding="facturarButton">
             <constraints>
               <grid row="4" column="10" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

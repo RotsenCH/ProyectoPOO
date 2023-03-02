@@ -10,7 +10,6 @@ public class Bodega {
     private JButton button3;
     private JButton button4;
     private JTable table1;
-    private JTable table2;
     private JButton button5;
     private JButton button6;
     private JButton button7;

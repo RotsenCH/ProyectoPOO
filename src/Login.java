@@ -129,7 +129,7 @@ public class Login extends JDialog {
         Connection con = null;
         String url = "jdbc:mysql://localhost/quickmarket",
                 user = "root",
-                password = "UGPCUGR2002";
+                password = "Hiphop1511@";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);

@@ -27,7 +27,7 @@
             </constraints>
             <properties>
               <background color="-16627348"/>
-              <borderPainted value="false"/>
+              <borderPainted value="true"/>
               <contentAreaFilled value="false"/>
               <focusPainted value="false"/>
               <focusable value="false"/>

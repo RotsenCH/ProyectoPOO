@@ -1,7 +1,7 @@
 import javax.swing.*;
 
-public class Cajero {
-    private JPanel cajero;
+public class Cajero extends Login {
+    public JPanel cajero_panel;
     private JButton regresarL;
     private JPanel panel1;
     private JTextField buscarP;

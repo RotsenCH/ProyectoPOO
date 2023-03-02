@@ -1,11 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.sql.*;
 
 public class Login extends JDialog {
+    PreparedStatement ps;
     private JPanel contentPane;
-    private JButton button1;
+    private JButton ingresarButton;
     private JLabel Rol;
     private JTextField usuarioTextField;
     private JPasswordField contraseñaPasswordField;
@@ -22,7 +26,7 @@ public class Login extends JDialog {
     };
 
     String msj[] = {
-            "",
+            "¡Presiona \"Ingresar\" para comenzar!",
             "Ingresando como Administrador",
             "Ingresando como Cajero"
     };
@@ -38,10 +42,82 @@ public class Login extends JDialog {
             }
         });
 
+        ingresarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Connection con;
+                try {
+                    con = getConection();
+
+                    String id = String.valueOf(index);
+                    String usuario = usuarioTextField.getText();
+                    String contra = String.valueOf(contraseñaPasswordField.getPassword());
+
+                    if (id.equals("0")) {
+                        mensaje.setText("No haz ingresado un tipo de rol");
+                    } else if(id.equals("1")){
+                        user = getValidacion(id,usuario,contra);
+
+                        if (user != null) {
+                            mensaje.setText("Cuenta correcta");
+                        }
+                        else {
+                            mensaje.setText("Usuario o Contraseña Inválidos");
+                            usuarioTextField.setText("");
+                            contraseñaPasswordField.setText("");
+                        }
+                    } else if (id.equals("2")) {
+                        user = getValidacion(id,usuario,contra);
+
+                        if (user != null) {
+                            JFrame ventana_cajero = new JFrame("Ventana de Cajero");
+                            ventana_cajero.setContentPane(new Cajero().cajero_panel);
+                            ventana_cajero.setLocationByPlatform(true);
+                            ventana_cajero.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            ventana_cajero.pack();
+                            ventana_cajero.setVisible(true);
+                        }
+                        else {
+                            mensaje.setText("Usuario o Contraseña Inválidos");
+                            usuarioTextField.setText("");
+                            contraseñaPasswordField.setText("");
+                        }
+                    }
+                    con.close();
+
+                } catch (HeadlessException | SQLException f) {
+                    System.err.println(f);
+                }
+            }
+        });
+
+    }
+
+    public Usuario user;
+    private Usuario getValidacion(String id, String usuario, String contra) {
+        Usuario user = null;
+        Connection con;
+        try{
+            con = getConection();
 
 
+            ps = con.prepareStatement("SELECT * FROM USUARIOS where idroles =? and usuario =? and contrasenia = ?;");
+            ps.setString(1, id);
+            ps.setString(2, usuario);
+            ps.setString(3, contra);
+            ResultSet rs = ps.executeQuery();
 
+            if (rs .next()) {
+                user = new Usuario();
+            }
 
+            con.close();
+
+        }catch (HeadlessException | SQLException f) {
+            System.err.println(f);
+        }
+
+        return user;
     }
 
     public void seleccionRol(){
@@ -50,9 +126,23 @@ public class Login extends JDialog {
         mensaje.setText(msj[index]);
     }
 
+    public static Connection getConection(){
+        Connection con = null;
+        String url = "jdbc:mysql://localhost/quickmarket",
+                user = "root",
+                password = "UGPCUGR2002";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, user, password);
+        } catch (ClassNotFoundException | SQLException e) {
+            System.err.println(e);
+        }
+        return con;
+    }
     public static void main(String[] args) {
         JFrame frame =new JFrame("Ventana Login");
         frame.setContentPane(new Login().contentPane);
+        frame.setLocationByPlatform(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

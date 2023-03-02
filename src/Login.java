@@ -59,7 +59,15 @@ public class Login extends JDialog {
                         user = getValidacion(id,usuario,contra);
 
                         if (user != null) {
-                            mensaje.setText("Cuenta correcta");
+                            usuarioTextField.setText("");
+                            contraseñaPasswordField.setText("");
+                            
+                            JFrame ventana_cajero = new JFrame("Ventana de Administrador");
+                            ventana_cajero.setContentPane(new Administrador().admin);
+                            ventana_cajero.setLocationByPlatform(true);
+                            ventana_cajero.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            ventana_cajero.pack();
+                            ventana_cajero.setVisible(true);
                         }
                         else {
                             mensaje.setText("Usuario o Contraseña Inválidos");
@@ -70,6 +78,9 @@ public class Login extends JDialog {
                         user = getValidacion(id,usuario,contra);
 
                         if (user != null) {
+                            usuarioTextField.setText("");
+                            contraseñaPasswordField.setText("");
+
                             JFrame ventana_cajero = new JFrame("Ventana de Cajero");
                             ventana_cajero.setContentPane(new Cajero().cajero_panel);
                             ventana_cajero.setLocationByPlatform(true);
@@ -129,7 +140,7 @@ public class Login extends JDialog {
         Connection con = null;
         String url = "jdbc:mysql://localhost/quickmarket",
                 user = "root",
-                password = "Hiphop1511@";
+                password = "UGPCUGR2002";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);

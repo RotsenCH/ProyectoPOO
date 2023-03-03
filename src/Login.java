@@ -62,12 +62,14 @@ public class Login extends JDialog {
                             usuarioTextField.setText("");
                             contraseñaPasswordField.setText("");
                             
-                            JFrame ventana_cajero = new JFrame("Ventana de Administrador");
-                            ventana_cajero.setContentPane(new Administrador().admin);
-                            ventana_cajero.setLocationByPlatform(true);
-                            ventana_cajero.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            ventana_cajero.pack();
-                            ventana_cajero.setVisible(true);
+                            JFrame ventana_de_administrador = new JFrame("Ventana de Administrador");
+                            Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/LOGO.png"));
+                            ventana_de_administrador.setIconImage(img);
+                            ventana_de_administrador.setContentPane(new Administrador().admin);
+                            ventana_de_administrador.setLocationByPlatform(true);
+                            ventana_de_administrador.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            ventana_de_administrador.pack();
+                            ventana_de_administrador.setVisible(true);
                         }
                         else {
                             mensaje.setText("Usuario o Contraseña Inválidos");
@@ -82,6 +84,8 @@ public class Login extends JDialog {
                             contraseñaPasswordField.setText("");
 
                             JFrame ventana_cajero = new JFrame("Ventana de Cajero");
+                            Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/LOGO.png"));
+                            ventana_cajero.setIconImage(img);
                             ventana_cajero.setContentPane(new Cajero().cajero_panel);
                             ventana_cajero.setLocationByPlatform(true);
                             ventana_cajero.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -151,6 +155,8 @@ public class Login extends JDialog {
     }
     public static void main(String[] args) {
         JFrame frame =new JFrame("Ventana Login");
+        Image img = Toolkit.getDefaultToolkit().getImage(Login.class.getResource("Imagenes/LOGO.png"));
+        frame.setIconImage(img);
         frame.setContentPane(new Login().contentPane);
         frame.setLocationByPlatform(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

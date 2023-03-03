@@ -72,7 +72,7 @@
           <hideActionText class="java.lang.Boolean" value="false"/>
         </clientProperties>
       </component>
-      <component id="ee8b8" class="javax.swing.JButton" binding="agregar">
+      <component id="ee8b8" class="javax.swing.JButton" binding="cajeroButton">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -88,7 +88,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="9f3b2" class="javax.swing.JButton">
+      <component id="9f3b2" class="javax.swing.JButton" binding="bodega_button">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

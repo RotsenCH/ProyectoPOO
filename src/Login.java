@@ -17,7 +17,7 @@ public class Login extends JDialog{
     private JLabel mensaje;
     private JButton buttonOK;
 
-    int index=0;
+    public int index;
 
     String imgs[] = {
             "Imagenes/Supermercado.png", //Selleccion 0
@@ -35,13 +35,16 @@ public class Login extends JDialog{
         //JFrame frame =new JFrame("Ventana Login");
         super(login);
 
+        //index=0;
+
         Image img = Toolkit.getDefaultToolkit().getImage(Login.class.getResource("Imagenes/LOGO.png"));
         setIconImage(img);
         setContentPane(contentPane);
         setLocationByPlatform(true);
         pack();
-        seleccionRol();
         setVisible(true);
+
+        seleccionRol();
 
         rolComboBox.addItemListener(new ItemListener() {
             @Override
@@ -73,7 +76,7 @@ public class Login extends JDialog{
                             usuarioTextField.setText("");
                             contraseñaPasswordField.setText("");
 
-                            Administrador admin = new Administrador(null);
+                            Administrador admin = new Administrador(null, index);
                         }
                         else {
                             mensaje.setText("Usuario o Contraseña Inválidos");
@@ -88,7 +91,7 @@ public class Login extends JDialog{
                             usuarioTextField.setText("");
                             contraseñaPasswordField.setText("");
 
-                            Cajero cajero = new Cajero(null);
+                            Cajero cajero = new Cajero(null,index);
                         }
                         else {
                             mensaje.setText("Usuario o Contraseña Inválidos");

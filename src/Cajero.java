@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Cajero extends JDialog {
+public class Cajero extends Login{
     public JPanel cajero_panel;
     private JButton regresarL;
     private JPanel panel1;
@@ -20,20 +20,34 @@ public class Cajero extends JDialog {
     private JTextField NOMProdTXT;
     private JTextField precioVenTXT;
 
-    public Cajero(JFrame cajer){
+    public Cajero(JFrame cajer, int ind){
         super(cajer);
         Image img = Toolkit.getDefaultToolkit().getImage(getClass().getResource("Imagenes/LOGO.png"));
         setIconImage(img);
+        setLocationRelativeTo(null);
         setContentPane(cajero_panel);
-        setLocationByPlatform(true);
         pack();
         setVisible(true);
         regresarL.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                Login login = new Login(null);
+                if (ind == 2) {
+                    Login login = new Login(null);
+                } else if(ind == 1) {
+                    Administrador administrador = new Administrador(null, ind);
+                }
             }
         });
+
+        clienteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Clientes cliente = new Clientes(null, ind);
+            }
+        });
+
+
     }
 }
